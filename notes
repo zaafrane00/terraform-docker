@@ -5,3 +5,6 @@ terraform import module.hasura.docker_container.hasura $(docker inspect hasura -
 terraform state show module.hasura.docker_container.hasura
 
 terraform import module.postgresql.docker_container.postgresql-master $(docker inspect hasura --format '{{.Id}}')
+
+
+depends_on = [docker_container.nginx]
